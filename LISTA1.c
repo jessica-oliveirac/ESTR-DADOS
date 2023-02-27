@@ -162,8 +162,43 @@ int main(void) {
 }
 -----------------------------------------
 12 - Passagem por valor
+
+#include <stdio.h>
+
+void troca(int a, int b){
+	int c = a;
+	a = b;
+	b = c;
+}
+
+
+int main(void){
+	int v = 5;	// variável simples
+	int *p;	// variável ponteiro
+	p = &v;
+	*p = *p + 2;
+	printf("v=%d, *p=%d\n", v, *p);
+	return 0;
+}
 -----------------------------------------
 13 - Passagem por referência
+
+#include <stdio.h>
+
+void troca(int *a, int *b){
+	int c = *a;
+	*a = *b;
+	*b = c;
+}
+int main(void){
+	int v = 5;	// variável simples
+	int *p;	// variável ponteiro
+	p = &v;
+	*p = *p + 2;
+	printf("v=%d, *p=%d\n", v, *p);
+	return 0;
+}
+
 -----------------------------------------
 14 - Média de uma sequência de números
 
