@@ -113,12 +113,88 @@ int main(void) {
 8.	Função Hanói
 -------------------------------------------------------------------------
 9.	Par
+
+#include <stdio.h>
+
+int par(int n) {
+	if(n==0) {
+		printf("Par");
+	} else {
+		par(n-2);
+	}
+}
+int main(void) {
+	int n;
+	printf("Numero: ");
+	scanf("%d", &n);
+	par(n);
+	return 0;
+}
 -------------------------------------------------------------------------
 10.	Produto
+#include <stdio.h>
+int prod(int m, int n) {
+	if(n==0) {
+	return 0;
+	}
+	else {
+		return m +prod(m,n-1);
+	}
+}
+
+int main(void) {
+	int m, n;
+	printf("Numeros: ");
+	scanf("%d %d", &m, &n);
+
+	printf("Produto: %d", prod(m, n));
+	return 0;
+}
+
 -------------------------------------------------------------------------
 11.	Quociente
+
+#include <stdio.h>
+int quoc( int m, int n) {
+	if(m<n) {
+		return 0;
+	}else {
+		return 1+ quoc(m-n, n);
+	}
+}
+
+int main(void) {
+	int m, n;
+	printf("Numeros: ");
+	scanf("%d %d", &m, &n);
+
+	printf("Quociente: %d", quoc(m,n));
+
+}
 -------------------------------------------------------------------------
 12.	Resto
+
+#include <stdio.h>
+int resto(int m, int n){
+	if (m<n){
+		return m;
+	}
+	else {
+		return resto(m-n,n);
+	}
+}
+
+int main (void) {
+	int m;
+	int n;
+	printf("Numero: ");
+	scanf("%d",&m);
+	printf("Divisor: ");
+	scanf("%d", &n);
+
+	printf("Resto: %d", resto(m,n));
+	return 0;
+}
 -------------------------------------------------------------------------
 13.	Quadrado
 -------------------------------------------------------------------------
