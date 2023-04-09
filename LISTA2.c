@@ -40,6 +40,43 @@ int main(void){
 }
 ************************************************************
 1.Ordenação crescente
+
+#include <stdio.h>
+#include "pilha.h"
+
+int main(void) {
+   int qtd;
+   int valor;
+
+   Pilha A = pilha(qtd);
+   Pilha B = pilha(qtd);
+   printf("Quantidade de números: ");
+   scanf("%d",&qtd);
+	
+   for(int i= 0; i<qtd; i++){
+		//int valor;
+		printf("%dº valor: ", i +1);
+		scanf("%d",&valor);
+		empilha(valor, A);
+	}
+
+	while(!vaziap(A)) {
+		 valor = desempilha(A);
+		while(!vaziap(B) && topo(B)> valor){
+			empilha(desempilha(B), A);}
+		empilha(valor, B);
+	}
+
+   while(!vaziap(B)){
+     empilha(desempilha(B),A);
+   }
+   while(!vaziap(A)){
+     printf("%d ",desempilha(A));
+   }
+   destroip(&B);
+   destroip(&A);
+   return 0;
+}
 --------------------------------------------------------------
 2.Ordenação decrescente e sem repetição
 --------------------------------------------------------------
