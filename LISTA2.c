@@ -79,6 +79,38 @@ int main(void) {
 }
 --------------------------------------------------------------
 2.Ordenação decrescente e sem repetição
+#include <stdio.h>
+#include "pilha.h"
+
+int main(void){
+	int qtd;
+	Pilha A = pilha(qtd);
+	Pilha B = pilha(qtd);
+	printf("Quantidade de números: ");
+	scanf("%d", &qtd);
+	for(int i = 0; i < qtd; i++){
+		int valor;
+		printf("Digite o %dº número: ", i + 1);
+		scanf("%d", &valor);
+		empilha(valor, A);
+  }
+	while(!vaziap(A)){
+		int valor = desempilha(A);
+		while(!vaziap(B) && topo(B) < valor){
+			empilha(desempilha(B), A);
+		}
+		if(vaziap(B) || topo(B) != valor){
+			empilha(valor, B);
+		}
+	}
+	while(!vaziap(B)){
+		empilha(desempilha(B), A);
+	}
+	while(!vaziap(A)){
+		printf("%d ", desempilha(A));
+	}
+	return 0;
+}
 --------------------------------------------------------------
 3.Inversão de palavras
 #include <stdio.h>
