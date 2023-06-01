@@ -81,6 +81,32 @@ int main(void) {
 2.Ordenação decrescente e sem repetição
 --------------------------------------------------------------
 3.Inversão de palavras
+#include <stdio.h>
+#include "pilha.h"
+
+int main(void) {
+	char palavra[513];
+	Pilha P = pilha(513);
+	printf("Frase: ");
+	scanf("%[^\n]s", palavra);
+	for(int i = 0; palavra[i] != '\0'; i++){
+		if(palavra[i] != ' '){
+			empilha(palavra[i], P);
+		}
+	else {
+		while(!vaziap(P)){
+			printf("%c", desempilha(P));
+		}
+		printf(" ");
+		}
+	}
+	while(!vaziap(P)){
+		printf("%c", desempilha(P));
+	}
+	puts("\n");
+	destroip(&P);
+	return 0;
+}
 --------------------------------------------------------------
 4.Balanceamento de parênteses
 --------------------------------------------------------------
