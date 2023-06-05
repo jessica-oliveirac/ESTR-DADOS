@@ -28,6 +28,36 @@ int main(void) {
 }
 ------------------------------------------------------------------------------------
 2 - Outra forma de exibição
+#include <stdio.h>
+#include <stdlib.h>
+typedef int Item;
+typedef struct no {
+   Item item;
+   struct no *prox;
+} *Lista;
+
+void exibe(Lista I) {
+	printf("[");
+  while(I != NULL ) {
+	 printf("%d", I->item);
+		if(I->prox != NULL){
+			printf(",");
+		}
+	 I = I->prox;
+	}
+	printf("]");
+}
+Lista no(Item x,Lista p) {
+   Lista n =malloc(sizeof(struct no));
+   n->item = x;
+   n->prox = p;
+   return n;
+}
+int main(void) {
+   Lista I = no(3,no(1,no(5,NULL)));
+   exibe(I);
+   return 0;
+}
 ------------------------------------------------------------------------------------
 3 - Programa para tamanho
 ------------------------------------------------------------------------------------
